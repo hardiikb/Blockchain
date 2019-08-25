@@ -1,0 +1,183 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div class="login-page">
+  <div class="form">
+    <form class="register-form">
+      <h4 #hello>hello</h4>
+      <input type="text" placeholder="First Name:" #firstName>
+	  <input type="text" placeholder="Last Name:" #lastName>
+      <input type="text" placeholder="User Id:" #userId >
+      <button (click)= "onRegister(firstName.value,lastName.value,userId.value)">Register</button>
+    </form>
+    <form class="login-form">
+      <input type="text" placeholder="User Id:" #logInId >
+	  <button (click)= "onLogIn(logInId.value)">User Log In</button>
+    </form>
+    <hr>
+    <form style="margin-bottom:0.3cm;" class = "login-form">
+   		<input type="text" placeholder="Airline Id:" #airline>
+   		<button (click)="onAir(airline.value)">Airline Log In</button>
+   	</form>
+   	</div>
+</div>
+<!--
+<div>
+<h3>Register</h3>	
+<input type="text" placeholder="First Name:" #firstName>
+<input type="text" placeholder="Last Name:" #lastName>
+<input type="text" placeholder="User Id:" #userId >
+<button (click)= "onRegister(firstName.value,lastName.value,userId.value)">Register</button>
+</div>
+
+<div>
+<h3>Log In</h3>	
+<input type="text" placeholder="User Id:" #logInId >
+<button (click)= "onLogIn(logInId.value)">Log In</button>
+</div>
+-->
+<hr>
+<div *ngIf = "userDisabled">
+	<h3>{{firstname}} {{lastname}} is logged in !!</h3>
+	<button (click)= "refill($event)" name="registerUser">Connect to BlockChain</button>
+	<button  (click)= "refill($event)" name="unregisterUser">Disconnect</button>
+	<p> BlockChain Address : {{userAddress}} </p> 
+
+</div>
+
+<div *ngIf = "userDisabled">
+	<h4>Flight Ticket</h4>
+
+	<table>
+		<ng-container>
+			<tr>
+    			<th>Airline</th>
+			    <th>From</th>
+			    <th>To</th>
+			    <th>Confirmation</th>
+			    <th>Date</th>
+  			</tr>
+	        <tr *ngFor="let item of onCart">
+	  			<p [hidden]= "true" #airid>{{item.airId}}</p>
+	            <td>{{item.airline}}</td>
+	            <td #from>{{item.from}}</td>
+	            <td #to>{{item.to}}</td>
+	            <td #confirmation>{{item.confirmation}}</td>
+	            <td #date>{{item.date}}</td>
+	           	<button (click) = "flightchange(airid, from, to, confirmation, date)">Change Flight</button>
+
+	        </tr>  
+	    </ng-container> 
+	</table>
+	
+</div>
+<div *ngIf = "switch">
+	<h3>{{flightName}} is logged in !!</h3>
+	<button (click)= "refill($event)" name="registerAirline">Connect to BlockChain</button>
+	<button  (click)= "refill($event)" name="unregisterAirline">Disconnect</button>
+	<p> BlockChain Address : {{userAddress}} </p> 
+	<h4>Flight Change Requests From Customers:</h4>
+	<table>
+		<ng-container>
+			<tr>
+    			<th>User Id</th>
+			    <th>Confirmation</th>
+			    <th>From</th>
+			    <th>To</th>
+			    <th>Date</th>
+  			</tr>
+	        <tr *ngFor="let item of requests">
+	            <td #f_userId>{{item.userId}}</td>
+	            <td #f_confirmation>{{item.confirmation}}</td>
+	            <td #f_from>{{item.from}}</td>
+	            <td #f_to>{{item.to}}</td>
+	            <td #f_date>{{item.date}}</td>
+	            <ul>
+	            	<li><button (click) = "check(f_userId,f_confirmation)">Check</button><p>{{verified}}</p></li>
+	            </ul>
+	           	<ul *ngIf = "checker">
+	            	<li *ngFor = "let item of categories">
+	            		<p [hidden] = "true" #forwardId>{{item.airId}}</p>
+	            		<button (click) = "forward(item.airline,forwardId,f_from,f_to,f_date,f_userId,f_confirmation)">{{item.airline}}</button>
+	            	</li>
+	            </ul>
+	           	
+
+	        </tr>  
+	    </ng-container> 
+	</table>
+	
+</div>
+
+<div *ngIf = "switch">
+	<h4>Flight Request From Other Airlines:</h4>
+	<table>
+		<ng-container>
+			<tr>
+    			<th>Airline</th>
+    			<th>Id</th>
+			    <th>From</th>
+			    <th>To</th>
+			    <th>Date</th>
+  			</tr>
+	        <tr *ngFor="let item of f_requests">
+	  			<p [hidden]= "true" #final_userId>{{item.userId}}</p>
+	            <td >{{item.airline}}</td>
+	            <td #final_airId>{{item.airId}}</td>
+	            <td #final_from>{{item.from}}</td>
+	            <td #final_to>{{item.to}}</td>
+	            <td #final_date>{{item.date}}</td>
+	           	<button (click) = "finalcheck(final_airId,final_userId, final_from, final_to, final_date)">Check</button><p>{{flightStatus}}</p>
+
+	           	<button *ngIf = "this.flightCheck"  (click) = "finalconfirm(final_airId,final_userId, final_from, final_to, final_date)">Send Confirmation</button>
+	           	
+	           	<button *ngIf = "this.flightCheck" (click) = "finalsettle(final_airId,final_userId, final_from, final_to, final_date)">Settle Payment</button>
+
+	        </tr>  
+	    </ng-container> 
+	</table>
+	
+</div>
+<!---
+<div *ngIf = "userDisabled">
+	<h4>Items in Sale:</h4>
+	<table>
+		<ng-container>
+			<tr>
+    			<th>ItemName</th>
+			    <th>ItemPrice</th>
+  			</tr>
+	        <tr *ngFor="let item of onSale">
+	        	<p [hidden]= "true" #saleitemid>{{item.saleitemId}}</p>
+	            <td>{{item.itemName}}</td>
+	            <td>{{item.itemPrice}} $</td>
+	        </tr>  
+	    </ng-container> 
+	</table>
+	
+</div>
+
+
+<div *ngIf = "userDisabled" >
+	<hr>
+	<h4>Items you can buy:</h4>
+	<div style="overflow-x:auto;">
+	<table>
+		<tr>
+    			<th>ItemName</th>
+			    <th>ItemPrice</th>
+  		</tr>
+		<ng-container *ngFor="let user of itemsToBuy">
+	        <tr *ngFor="let sale of user.onSale">
+	            <td>{{sale.itemName}}</td>
+	            <td #itemprice>{{sale.itemPrice}} $</td>
+	            <td [hidden]="true" #userid>{{user.userId}}</td>
+	            <td [hidden]="true" #buyitemid>{{sale.itemId}}</td>
+	            <button (click) = "buy(userid,buyitemid,itemprice)" >Buy</button>
+	        </tr>  
+	    </ng-container> 
+	</table>
+	</div>
+</div>
+
+<router-outlet></router-outlet>--->
+  
