@@ -49,18 +49,17 @@
    IPFS.
 
 8. Now, in the browser hit the following url:
-		http://localhost:3000/addfile
+		http://localhost:3000/
 
-		which will add the file to IPFS and will return the file with the IPFS link to that file.
+		which will open an html web page using which you can select files from your computer and press "upload" button which in turn add the file to IPFS and will return the IPFS link to that file.
 
 Testing:
 
 I have previously uploaded few files for testing.
 
-https://gateway.ipfs.io/ipfs/QmUCNpypcHp7PiJD1eZshbmyDqCBXmPSXNwwY7KEHaUWq7
-https://gateway.ipfs.io/ipfs/QmNmUkMkmMu3356pWgUzpjj2fsJGNnyudFU1XYzBB9uL3i
-https://gateway.ipfs.io/ipfs/QmdvwBwWnxVjyLcXzWDKD34DtiMAFz1TUJBRnczzM1Y4Ab
-
+Sample Images:
+https://gateway.ipfs.io/ipfs/QmbzLbFEW8kivX2aQ89f7Wq2KHMTJvGN5XVLkQy5EQu6UT
+https://gateway.ipfs.io/ipfs/Qmf9ABjskfF6iEPSRvSLESEoyZ3rPmXmNt7YPzezv1RMXT
 you can click on the link which will return the files that I have uploaded.
 
 
