@@ -5,10 +5,10 @@
 	Part2 : Solidity
 	Part3 : Truffle, Web3, Ganache 
 
-# Root Folder : "hbabariy_Lab2"
+# Root Folder : "FlightReservationSystem"
 ## Prerequisite steps for testing the app :
 
-1. Navigate to "hbabariy_Lab2" folder. 
+1. Navigate to "FlightReservationSystem" folder. 
 2. Using "ng serve --open" command launch the web app on "http://localhost:4200/".
 3. Using "mongod" command, start the mongoDB server.
 4. Now, launch "Ganache" to start a blochchain server on "http://localhost:7545/".
