@@ -1,0 +1,183 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!-- <div style="text-align:center">
+  <h1>
+    {{ title }}!
+  </h1>
+</div>
+
+<div class="login-page">
+  <div class="form">
+    <form class="register-form">
+      <h4 #hello>Register Your Identity: </h4>
+      <input type="text" placeholder="First Name:" #firstName>
+	    <input type="text" placeholder="Last Name:" #lastName>
+      <input type="text" placeholder="Passport no:" #passportNo>
+      <input type="text" placeholder="Biometrics:" #biometrics>
+      <input type="text" placeholder="Date of birth:" #dob>
+      <input type="text" placeholder="Passport issue date:" #passportIssue>
+      <input type="text" placeholder="Passport expiry date:" #passportExpiry>
+      <input type="text" placeholder="Country Code:" #countryCode>
+      <input type="text" placeholder="Type:" #type>
+      <input type="button" value="Register" (click)= "onRegister(firstName.value, lastName.value, passportNo.value, biometrics.value, dob.value, passportIssue.value, passportExpiry.value, countryCode.value, type.value)">
+    </form>
+    <hr>
+    <form style="margin-bottom:0.3cm;" class = "login-form">
+       <h4 #hello>Get Your Identity: </h4>
+       <input type="text" placeholder="Passport No:" #getPassportNo>
+       <input type="text" placeholder="BioMetrics:" #getBioMetrics>
+   		<button (click)="onReadIdentity(getPassportNo.value, getBioMetrics.value)">Get</button>
+    </form>
+    <hr>
+    <form style="margin-bottom:0.3cm;" class = "login-form">
+       <h4 #hello>Update Your Identity: </h4>
+       <input type="text" placeholder="Passport No:" #updatePassportNo>
+       <input type="text" placeholder="BioMetrics:" #updateBioMetrics>
+       <input type="text" placeholder="New Passport No:" #updateNewPassportNo>
+   		<button (click)="onUpdateIdentity(updatePassportNo.value, updateBioMetrics.value, updateNewPassportNo.value)">Get</button>
+   	</form> 
+  </div>
+     
+</div> -->
+
+<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+    <div class="wrapper wrapper--w680">
+        <div class="card card-4">
+            <div class="card-heading">
+                <h1 class="title_main">Notebook</h1>
+            </div>
+            
+            <div class="card-body">
+                <h2 class="title" #hello>Register Your Identity</h2>
+                <form>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">first name</label>
+                                <input class="input--style-4" type="text" #firstName>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">last name</label>
+                                <input class="input--style-4" type="text" #lastName>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Birthday</label>
+                                <div class="input-group-icon">
+                                    <input class="input--style-4 js-datepicker" type="text" #dob>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Passport No</label>
+                                <input class="input--style-4" type="text" #passportNo>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">BioMetrics</label>
+                                <input class="input--style-4" type="text" #biometrics>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Passport Issue Date</label>
+                                <input class="input--style-4" type="text" #passportIssue>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Passport Expiry Date</label>
+                                <input class="input--style-4" type="text" #passportExpiry>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Country Code</label>
+                                <input class="input--style-4" type="text" #countryCode>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Type</label>
+                                <input class="input--style-4" type="text" #type>
+                            </div>
+                        </div>
+                    </div>
+                    <p *ngIf="success" class="title">Your Identity Has Been Registered</p>
+                    <div class="p-t-15">
+                          <input class="btn btn--radius-2 btn--blue" type="button" value="Register" (click)= "onRegister(firstName.value, lastName.value, passportNo.value, biometrics.value, dob.value, passportIssue.value, passportExpiry.value, countryCode.value, type.value)">
+                    </div>
+                </form>
+            </div>
+            
+            <div class="card-body">
+                <h2 class="title" #hello>Access Your Identity</h2>
+                <form>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Passport No</label>
+                                <input class="input--style-4" type="text" #getPassportNo>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">BioMetrics</label>
+                                <input class="input--style-4" type="text" #getBioMetrics>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-t-15">
+                          <input class="btn btn--radius-2 btn--blue" type="button" value="Get" (click)="onReadIdentity(getPassportNo.value, getBioMetrics.value)">
+                    </div>
+                </form>
+            </div>
+        
+            <div class="card-body">
+              <h2 class="title" #hello>Update Your Identity</h2>
+              <form>
+                  <div class="row row-space">
+                      <div class="col-2">
+                          <div class="input-group">
+                              <label class="label">Old Passport No</label>
+                              <input class="input--style-4" type="text" #updatePassportNo>
+                          </div>
+                      </div>
+                      <div class="col-2">
+                          <div class="input-group">
+                              <label class="label">BioMetrics</label>
+                              <input class="input--style-4" type="text" #updateBioMetrics>
+                          </div>
+                      </div>
+                      <div class="col-2">
+                        <div class="input-group">
+                            <label class="label">New Passport No</label>
+                            <input class="input--style-4" type="text" #updateNewPassportNo>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="p-t-15">
+                        <input class="btn btn--radius-2 btn--blue" type="button" value="Update" (click)="onUpdateIdentity(updatePassportNo.value, updateBioMetrics.value, updateNewPassportNo.value)">
+                  </div>
+              </form>
+          </div>
+        </div>
+    </div>
+  </div>
+  
+  
+  
+
+

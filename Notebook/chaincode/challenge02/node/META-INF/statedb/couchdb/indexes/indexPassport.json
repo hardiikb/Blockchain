@@ -1,0 +1,1 @@
+{"index":{"fields":["docType","passportNo","bioMetrics"]},"ddoc":"indexPassportDoc", "name":"indexPassport","type":"json"}
